@@ -4,23 +4,23 @@
 //
 //  Created by 邓理 on 4/3/25.
 //
-
 import SwiftUI
 import UniformTypeIdentifiers
 
 struct DocumentPicker: UIViewControllerRepresentable {
-    @Binding var fileURL: URL?
-    @Binding var fileName: String
+    @Binding var isPresented: Bool
+    let supportedTypes: [UTType]
+    let allowsMultipleSelection: Bool
+    let onPick: ([URL]) -> Void
     
-    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
-        let supportedTypes: [UTType] = [.data, .content, .item, .compositeContent]
-        let picker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
-        picker.allowsMultipleSelection = false
-        picker.delegate = context.coordinator
-        return picker
+    func makeUIViewController(context: Context) -> UIViewController {
+        let controller = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
+        controller.allowsMultipleSelection = allowsMultipleSelection
+        controller.delegate = context.coordinator
+        return controller
     }
     
-    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -34,18 +34,23 @@ struct DocumentPicker: UIViewControllerRepresentable {
         }
         
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            guard let url = urls.first else { return }
-            
-            // 获取文件访问权限
-            let shouldStopAccessing = url.startAccessingSecurityScopedResource()
-            defer {
-                if shouldStopAccessing {
-                    url.stopAccessingSecurityScopedResource()
-                }
+            // 给予应用访问这些文件的权限
+            let securedURLs = urls.map { url in
+                url.startAccessingSecurityScopedResource()
+                return url
             }
             
-            parent.fileURL = url
-            parent.fileName = url.lastPathComponent
+            parent.onPick(securedURLs)
+            parent.isPresented = false
+            
+            // 使用完后停止访问
+            for url in urls {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+        
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            parent.isPresented = false
         }
     }
 }

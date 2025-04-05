@@ -7,45 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14EB23EF2D9E99F2003A9BCA /* PLzmaSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 14EB23EE2D9E99F2003A9BCA /* PLzmaSDK */; };
-		14EB23F12D9E99F2003A9BCA /* PLzmaSDK-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 14EB23F02D9E99F2003A9BCA /* PLzmaSDK-Dynamic */; };
-		14EB23F32D9E99F2003A9BCA /* PLzmaSDK-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 14EB23F22D9E99F2003A9BCA /* PLzmaSDK-Static */; };
-		14EB23F62D9E9A4B003A9BCA /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 14EB23F52D9E9A4B003A9BCA /* CryptoSwift */; };
-		14EB23F92D9E9AD8003A9BCA /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 14EB23F82D9E9AD8003A9BCA /* ZIPFoundation */; };
+		140F89572DA1B83300CAC49F /* PLzmaSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 140F89562DA1B83300CAC49F /* PLzmaSDK */; };
+		140F89592DA1B83300CAC49F /* PLzmaSDK-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 140F89582DA1B83300CAC49F /* PLzmaSDK-Static */; };
+		140F895B2DA1B83300CAC49F /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 140F895A2DA1B83300CAC49F /* CryptoSwift */; };
+		140F895D2DA1B83300CAC49F /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 140F895C2DA1B83300CAC49F /* ZIPFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14EB23DE2D9E90CE003A9BCA /* FileMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		140F89362DA1B76900CAC49F /* FileMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		140F89542DA1B80100CAC49F /* Exceptions for "FileMagic" folder in "FileMagic" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ArchiveViewModel.swift,
+				ContentView.swift,
+				DocumentPicker.swift,
+				FileMagicApp.swift,
+				ShareSheet.swift,
+				ZipManager.swift,
+			);
+			target = 140F89352DA1B76900CAC49F /* FileMagic */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		14EB23E02D9E90CE003A9BCA /* FileMagic */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				140F89542DA1B80100CAC49F /* Exceptions for "FileMagic" folder in "FileMagic" target */,
+			);
 			path = FileMagic;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		14EB23DB2D9E90CE003A9BCA /* Frameworks */ = {
+		140F89332DA1B76900CAC49F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14EB23F32D9E99F2003A9BCA /* PLzmaSDK-Static in Frameworks */,
-				14EB23F62D9E9A4B003A9BCA /* CryptoSwift in Frameworks */,
-				14EB23F12D9E99F2003A9BCA /* PLzmaSDK-Dynamic in Frameworks */,
-				14EB23EF2D9E99F2003A9BCA /* PLzmaSDK in Frameworks */,
-				14EB23F92D9E9AD8003A9BCA /* ZIPFoundation in Frameworks */,
+				140F89592DA1B83300CAC49F /* PLzmaSDK-Static in Frameworks */,
+				140F89572DA1B83300CAC49F /* PLzmaSDK in Frameworks */,
+				140F895B2DA1B83300CAC49F /* CryptoSwift in Frameworks */,
+				140F895D2DA1B83300CAC49F /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140F89552DA1B83300CAC49F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		14EB23D52D9E90CE003A9BCA = {
 			isa = PBXGroup;
 			children = (
 				14EB23E02D9E90CE003A9BCA /* FileMagic */,
+				140F89552DA1B83300CAC49F /* Frameworks */,
 				14EB23DF2D9E90CE003A9BCA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,7 +77,7 @@
 		14EB23DF2D9E90CE003A9BCA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14EB23DE2D9E90CE003A9BCA /* FileMagic.app */,
+				140F89362DA1B76900CAC49F /* FileMagic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,31 +85,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		14EB23DD2D9E90CE003A9BCA /* FileMagic */ = {
+		140F89352DA1B76900CAC49F /* FileMagic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14EB23EA2D9E90D0003A9BCA /* Build configuration list for PBXNativeTarget "FileMagic" */;
+			buildConfigurationList = 140F893E2DA1B76A00CAC49F /* Build configuration list for PBXNativeTarget "FileMagic" */;
 			buildPhases = (
-				14EB23DA2D9E90CE003A9BCA /* Sources */,
-				14EB23DB2D9E90CE003A9BCA /* Frameworks */,
-				14EB23DC2D9E90CE003A9BCA /* Resources */,
+				140F89322DA1B76900CAC49F /* Sources */,
+				140F89332DA1B76900CAC49F /* Frameworks */,
+				140F89342DA1B76900CAC49F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				14EB23E02D9E90CE003A9BCA /* FileMagic */,
-			);
 			name = FileMagic;
 			packageProductDependencies = (
-				14EB23EE2D9E99F2003A9BCA /* PLzmaSDK */,
-				14EB23F02D9E99F2003A9BCA /* PLzmaSDK-Dynamic */,
-				14EB23F22D9E99F2003A9BCA /* PLzmaSDK-Static */,
-				14EB23F52D9E9A4B003A9BCA /* CryptoSwift */,
-				14EB23F82D9E9AD8003A9BCA /* ZIPFoundation */,
+				140F89562DA1B83300CAC49F /* PLzmaSDK */,
+				140F89582DA1B83300CAC49F /* PLzmaSDK-Static */,
+				140F895A2DA1B83300CAC49F /* CryptoSwift */,
+				140F895C2DA1B83300CAC49F /* ZIPFoundation */,
 			);
 			productName = FileMagic;
-			productReference = 14EB23DE2D9E90CE003A9BCA /* FileMagic.app */;
+			productReference = 140F89362DA1B76900CAC49F /* FileMagic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +118,7 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					14EB23DD2D9E90CE003A9BCA = {
+					140F89352DA1B76900CAC49F = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
@@ -122,13 +142,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14EB23DD2D9E90CE003A9BCA /* FileMagic */,
+				140F89352DA1B76900CAC49F /* FileMagic */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		14EB23DC2D9E90CE003A9BCA /* Resources */ = {
+		140F89342DA1B76900CAC49F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +158,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		14EB23DA2D9E90CE003A9BCA /* Sources */ = {
+		140F89322DA1B76900CAC49F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -148,6 +168,71 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		140F893F2DA1B76A00CAC49F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 328XHGHNP8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "应用需要访问您的文档以进行文件压缩和解压缩";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.innosaika.FileMagic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		140F89402DA1B76A00CAC49F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 328XHGHNP8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "应用需要访问您的文档以进行文件压缩和解压缩";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.innosaika.FileMagic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		14EB23E82D9E90D0003A9BCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -205,6 +290,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -260,105 +346,28 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-			};
-			name = Release;
-		};
-		14EB23EB2D9E90D0003A9BCA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FileMagic/FileMagic.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z9L7345YW5;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sa1ka.FileMagic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Debug;
-		};
-		14EB23EC2D9E90D0003A9BCA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FileMagic/FileMagic.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z9L7345YW5;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sa1ka.FileMagic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		140F893E2DA1B76A00CAC49F /* Build configuration list for PBXNativeTarget "FileMagic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				140F893F2DA1B76A00CAC49F /* Debug */,
+				140F89402DA1B76A00CAC49F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		14EB23D92D9E90CE003A9BCA /* Build configuration list for PBXProject "FileMagic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14EB23E82D9E90D0003A9BCA /* Debug */,
 				14EB23E92D9E90D0003A9BCA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14EB23EA2D9E90D0003A9BCA /* Build configuration list for PBXNativeTarget "FileMagic" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14EB23EB2D9E90D0003A9BCA /* Debug */,
-				14EB23EC2D9E90D0003A9BCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -393,27 +402,22 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		14EB23EE2D9E99F2003A9BCA /* PLzmaSDK */ = {
+		140F89562DA1B83300CAC49F /* PLzmaSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14EB23ED2D9E99F2003A9BCA /* XCRemoteSwiftPackageReference "PLzmaSDK" */;
 			productName = PLzmaSDK;
 		};
-		14EB23F02D9E99F2003A9BCA /* PLzmaSDK-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14EB23ED2D9E99F2003A9BCA /* XCRemoteSwiftPackageReference "PLzmaSDK" */;
-			productName = "PLzmaSDK-Dynamic";
-		};
-		14EB23F22D9E99F2003A9BCA /* PLzmaSDK-Static */ = {
+		140F89582DA1B83300CAC49F /* PLzmaSDK-Static */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14EB23ED2D9E99F2003A9BCA /* XCRemoteSwiftPackageReference "PLzmaSDK" */;
 			productName = "PLzmaSDK-Static";
 		};
-		14EB23F52D9E9A4B003A9BCA /* CryptoSwift */ = {
+		140F895A2DA1B83300CAC49F /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14EB23F42D9E9A4B003A9BCA /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
-		14EB23F82D9E9AD8003A9BCA /* ZIPFoundation */ = {
+		140F895C2DA1B83300CAC49F /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14EB23F72D9E9AD8003A9BCA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;

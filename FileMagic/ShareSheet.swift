@@ -4,14 +4,15 @@
 //
 //  Created by 邓理 on 4/3/25.
 //
-
 import SwiftUI
+import UIKit
 
 struct ShareSheet: UIViewControllerRepresentable {
-    let url: URL
+    let items: [Any]
     
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        return UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        return controller
     }
     
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
