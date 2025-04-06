@@ -11,6 +11,7 @@
 		140F89592DA1B83300CAC49F /* PLzmaSDK-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 140F89582DA1B83300CAC49F /* PLzmaSDK-Static */; };
 		140F895B2DA1B83300CAC49F /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 140F895A2DA1B83300CAC49F /* CryptoSwift */; };
 		140F895D2DA1B83300CAC49F /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 140F895C2DA1B83300CAC49F /* ZIPFoundation */; };
+		14891C452DA2A91C00FA4848 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 14891C442DA2A91C00FA4848 /* ZipArchive */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,12 +22,15 @@
 		140F89542DA1B80100CAC49F /* Exceptions for "FileMagic" folder in "FileMagic" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ArchiveManager/7zArchiveManager.swift,
+				ArchiveManager/ArchiveManager.swift,
+				ArchiveManager/ZipArchiveManager.swift,
 				ArchiveViewModel.swift,
+				Assets.xcassets,
 				ContentView.swift,
 				DocumentPicker.swift,
 				FileMagicApp.swift,
 				ShareSheet.swift,
-				ZipManager.swift,
 			);
 			target = 140F89352DA1B76900CAC49F /* FileMagic */;
 		};
@@ -48,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14891C452DA2A91C00FA4848 /* ZipArchive in Frameworks */,
 				140F89592DA1B83300CAC49F /* PLzmaSDK-Static in Frameworks */,
 				140F89572DA1B83300CAC49F /* PLzmaSDK in Frameworks */,
 				140F895B2DA1B83300CAC49F /* CryptoSwift in Frameworks */,
@@ -103,6 +108,7 @@
 				140F89582DA1B83300CAC49F /* PLzmaSDK-Static */,
 				140F895A2DA1B83300CAC49F /* CryptoSwift */,
 				140F895C2DA1B83300CAC49F /* ZIPFoundation */,
+				14891C442DA2A91C00FA4848 /* ZipArchive */,
 			);
 			productName = FileMagic;
 			productReference = 140F89362DA1B76900CAC49F /* FileMagic.app */;
@@ -136,6 +142,7 @@
 				14EB23ED2D9E99F2003A9BCA /* XCRemoteSwiftPackageReference "PLzmaSDK" */,
 				14EB23F42D9E9A4B003A9BCA /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				14EB23F72D9E9AD8003A9BCA /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				14891C432DA2A91C00FA4848 /* XCRemoteSwiftPackageReference "ZipArchive" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 14EB23DF2D9E90CE003A9BCA /* Products */;
@@ -375,6 +382,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		14891C432DA2A91C00FA4848 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
 		14EB23ED2D9E99F2003A9BCA /* XCRemoteSwiftPackageReference "PLzmaSDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/OlehKulykov/PLzmaSDK.git";
@@ -421,6 +436,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 14EB23F72D9E9AD8003A9BCA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
+		};
+		14891C442DA2A91C00FA4848 /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14891C432DA2A91C00FA4848 /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

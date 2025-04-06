@@ -8,21 +8,15 @@
 import Foundation
 import PLzmaSDK
 
-class ZipManager {
+class SevenZipArchiveManager: ArchiveManager {
     
-    enum CompressionError: Error {
-        case compressionFailed(String)
-        case decompressionFailed(String)
-        case invalidPassword
-        case fileNotFound
-    }
-    
-    // MARK: - 压缩文件到7z
-    static func compress(files: [URL],
+    // 压缩文件到7z
+    func compressFiles(files: [URL],
                         outputPath: URL,
                         password: String? = nil,
                         compressionLevel: UInt8 = 5,
                         encryptHeader: Bool = false,
+                        copyOriginalFile: Bool = true,
                         progressHandler: ((Float) -> Void)? = nil) async throws -> URL {
         
         return try await withCheckedThrowingContinuation { continuation in
@@ -65,34 +59,44 @@ class ZipManager {
                         // 开始安全访问
                         let didStartAccessing = fileURL.startAccessingSecurityScopedResource()
                         
+                        // 停止安全访问
+                        defer {
+                            if didStartAccessing {
+                                fileURL.stopAccessingSecurityScopedResource()
+                            }
+                        }
+                        
+                        let destinationURL = documentsDirectory.appendingPathComponent(fileURL.lastPathComponent)
+                        
                         do {
-                            let destinationURL = documentsDirectory.appendingPathComponent(fileURL.lastPathComponent)
-                            
-                            
-                            // 复制文件到应用沙盒
-                            try FileManager.default.copyItem(at: fileURL, to: destinationURL)
-                            
-                            // 停止安全访问
-                            if didStartAccessing {
-                                fileURL.stopAccessingSecurityScopedResource()
+                            if copyOriginalFile && !fileURL.path.contains(destinationURL.path) {
+                                if FileManager.default.fileExists(atPath: destinationURL.path) {
+                                    // 如果存在，先删除
+                                    try FileManager.default.removeItem(at: destinationURL)
+                                }
+                                // 复制文件到应用沙盒
+                                try FileManager.default.copyItem(at: fileURL, to: destinationURL)
                             }
                             
-                            // 使用沙盒中的文件进行操作
-                            if !FileManager.default.fileExists(atPath: destinationURL.path) {
-                                throw CompressionError.fileNotFound
-                            }
-                            
-                            // 创建文件路径对象
-                            let filePath = try PLzmaSDK.Path(destinationURL.path)
-                            
-                            // 添加文件到归档，使用文件名作为归档路径
-                            try encoder.add(path: filePath, mode: .default, archivePath: PLzmaSDK.Path(destinationURL.lastPathComponent))
                         } catch {
-                            if didStartAccessing {
-                                fileURL.stopAccessingSecurityScopedResource()
-                            }
                             print("Error handling file: \(error)")
                         }
+                        
+                        if didStartAccessing {
+                            fileURL.stopAccessingSecurityScopedResource()
+                        }
+                        
+                        // 使用沙盒中的文件进行操作
+                        if !FileManager.default.fileExists(atPath: destinationURL.path) {
+                            throw CompressionError.fileNotFound
+                        }
+                        
+                        // 创建文件路径对象
+                        let filePath = try PLzmaSDK.Path(destinationURL.path)
+                        
+                        // 添加文件到归档，使用文件名作为归档路径
+                        try encoder.add(path: filePath, mode: .default, archivePath: PLzmaSDK.Path(destinationURL.lastPathComponent))
+                    
                     }
                     
                     // 4. 打开归档
@@ -121,9 +125,10 @@ class ZipManager {
     }
     
     // MARK: - 解压7z文件
-    static func decompress(archivePath: URL,
+    func decompressFile(archivePath: URL,
                           destinationPath: URL,
                           password: String? = nil,
+                          copyOriginalFile: Bool = true,
                           progressHandler: ((Float) -> Void)? = nil) async throws -> URL {
         
         return try await withCheckedThrowingContinuation { continuation in
@@ -145,8 +150,14 @@ class ZipManager {
                     
                     let sandboxArchiveURL = documentsDirectory.appendingPathComponent(archivePath.lastPathComponent)
                     
-                    // 复制文件到应用沙盒
-                    try FileManager.default.copyItem(at: archivePath, to: sandboxArchiveURL)
+                    if copyOriginalFile && !archivePath.path.contains(sandboxArchiveURL.path) {
+                        if FileManager.default.fileExists(atPath: sandboxArchiveURL.path) {
+                            // 如果存在，先删除
+                            try FileManager.default.removeItem(at: sandboxArchiveURL)
+                        }
+                        // 复制文件到应用沙盒
+                        try FileManager.default.copyItem(at: archivePath, to: sandboxArchiveURL)
+                    }
                     
                     // 停止安全访问
                     if didStartAccessing {
@@ -208,7 +219,7 @@ class ZipManager {
     }
     
     // MARK: - 获取压缩包内容列表，不解压
-    static func listContents(archivePath: URL, password: String? = nil) async throws -> [String] {
+    func listContents(archivePath: URL, password: String? = nil) async throws -> [String] {
         return try await withCheckedThrowingContinuation { continuation in
             let queue = DispatchQueue(label: "com.innosaika.FileMagic", qos: .userInitiated)
             
